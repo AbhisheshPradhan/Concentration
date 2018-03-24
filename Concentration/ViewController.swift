@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     private var numberOfPairsOfCards: Int{
         return cardButtons.count / 2
     }
-
+    
     //MARK: OUTLETS
     @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet private weak var flipCountLabel: UILabel!
