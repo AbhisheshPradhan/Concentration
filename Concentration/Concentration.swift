@@ -16,6 +16,7 @@ class Concentration{    //API for the Concentration App. All the methods here ar
 
     //uses UI for value of cards but setting is done by the class so private(set)
     private(set) var cards =  [Card]()
+    private(set) var matches = 0
     
     //it is optional value, as if there are two or 0 faceup cards, its value is not set
     private var indexOfOneAndOnlyFaceUpCard: Int?
@@ -30,6 +31,7 @@ class Concentration{    //API for the Concentration App. All the methods here ar
                 if cards[matchIndex].identifier == cards[index].identifier{
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    matches += 1
                 }
                 cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = nil

@@ -34,10 +34,15 @@ class ViewController: UIViewController {
     private var emojiChoices = ["🍆", "😀","🍏","🍎","🥥","🍠"]
     //use card identifier(int) to put the corresponding emoji(string) into the cards array
     private var emoji =  [Int:String]()
+    
+    private var numberOfPairsOfCards: Int{
+        return cardButtons.count / 2
+    }
 
     //MARK: OUTLETS
     @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet weak var endGameLabel: UILabel!
     
     //MARK: ACTIONS
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -53,6 +58,9 @@ class ViewController: UIViewController {
         }
         else{
             print("chosen card was not in cardButtons")
+        }
+        if game.matches == numberOfPairsOfCards{
+            endGameLabel.isHidden = false
         }
     }
     
@@ -84,7 +92,7 @@ class ViewController: UIViewController {
     private  func resetGame(){
         //reset flip count, clear the emoji dictionary, start new game and update the view
         self.flipCount = 0
-        emoji = [:]
+        emoji.removeAll()
         emojiChoices = ["🍆", "😀","🍏","🍎","🥥","🍠"]
         startNewGame()
         updateViewFromModel()
@@ -92,8 +100,9 @@ class ViewController: UIViewController {
     
     //initialize the game
     private func startNewGame() {
+        endGameLabel.isHidden = true
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-        emoji = [:]
+        emoji.removeAll()
     }
     
     private func emoji(for card: Card) -> String{
