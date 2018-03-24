@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Concentration{    //API for the Concentration App. All the methods here are used by the controller
+struct Concentration{    //API for the Concentration App. All the methods here are used by the controller
     
     
     //array of cards of type Card(struct)
     //arrays are value types so we can create array of type struct as structs are also value types.
-
+    
     //uses UI for value of cards but setting is done by the class so private(set)
     private(set) var cards =  [Card]()
     private(set) var matches = 0
@@ -21,14 +21,14 @@ class Concentration{    //API for the Concentration App. All the methods here ar
     //it is optional value, as if there are two or 0 faceup cards, its value is not set
     private var indexOfOneAndOnlyFaceUpCard: Int?
     
-    func chooseCard(at index: Int){
+    mutating func chooseCard(at index: Int){
         //assertion for crash test
         assert(cards.indices.contains(index),"Concentration.chooseCard(at: \(index)):chosen index is not in card")
         if !cards[index].isMatched{
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index{
                 
                 //check if cards match
-                if cards[matchIndex].identifier == cards[index].identifier{
+                if cards[matchIndex] == cards[index]{
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     matches += 1

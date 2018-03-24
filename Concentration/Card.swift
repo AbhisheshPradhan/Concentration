@@ -8,11 +8,19 @@
 
 import Foundation
 
-struct Card{
+struct Card: Hashable
+{
+    var hashValue: Int{
+        return identifier
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
     
     var isFaceUp = false
     var isMatched = false
-    var identifier: Int // something to identify the card.
+    private var identifier: Int // something to identify the card.
     //doesn't require var for emoji as it is model and is UI independent.
     //private because they are internal implementation only
     
