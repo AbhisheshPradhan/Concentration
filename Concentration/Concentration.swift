@@ -13,7 +13,7 @@ class Concentration{    //API for the Concentration App. All the methods here ar
     
     //array of cards of type Card(struct)
     //arrays are value types so we can create array of type struct as structs are also value types.
-    
+
     //uses UI for value of cards but setting is done by the class so private(set)
     private(set) var cards =  [Card]()
     
@@ -57,7 +57,6 @@ class Concentration{    //API for the Concentration App. All the methods here ar
             //card = instances of struct..cards makes 2 copies of Card and puts it into the array
             //so card = 2 same cards but 2 different instances
         }
-        // TODO: Shuffle the cards
         cards.shuffle()
     }
 }

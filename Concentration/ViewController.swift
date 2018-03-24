@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     //lazy counts as this var is initilized.
     //can't add didSet/property observers to lazy var
     
+    
+    //MARK: GAME CREATION
     // game creates Controller -> model link
     private lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1 ) / 2 )
     
@@ -26,14 +28,18 @@ class ViewController: UIViewController {
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
-    //test comment
     
+    
+    //MARK: INSTANCE VARIABLES
     private var emojiChoices = ["🍆", "😀","🍏","🍎","🥥","🍠"]
-    
+    //use card identifier(int) to put the corresponding emoji(string) into the cards array
+    private var emoji =  [Int:String]()
+
+    //MARK: OUTLETS
     @IBOutlet private var cardButtons: [UIButton]!
-    
     @IBOutlet private weak var flipCountLabel: UILabel!
     
+    //MARK: ACTIONS
     @IBAction private func touchCard(_ sender: UIButton) {
         flipCount += 1
         if let cardNumber = cardButtons.index(of: sender){
@@ -50,6 +56,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction private func newGameButton(_ sender: UIButton) {
+        resetGame()
+    }
+    
+    
+    //MARK: METHODS
     //update the view when there are any changes in the value of cards
     // indirect link of Model -> View and done by controller
     private func  updateViewFromModel(){
@@ -71,10 +83,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction private func newGameButton(_ sender: UIButton) {
-        resetGame()
-    }
-    
     private  func resetGame(){
         //reset flip count, clear the emoji dictionary, start new game and update the view
         self.flipCount = 0
@@ -83,9 +91,6 @@ class ViewController: UIViewController {
         startNewGame()
         updateViewFromModel()
     }
-    
-    //use card identifier(int) to put the corresponding emoji(string) into the cards array
-    private var emoji =  [Int:String]()
     
     //initialize the game
     private func startNewGame() {
@@ -108,6 +113,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: INT EXTENSION
 extension Int{
     var arc4random: Int{
         if self > 0 {

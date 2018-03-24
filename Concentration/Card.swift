@@ -14,8 +14,6 @@ struct Card{
     var isMatched = false
     var identifier: Int // something to identify the card.
     //doesn't require var for emoji as it is model and is UI independent.
-    
-    
     //private because they are internal implementation only
     
    private static var identifierFactory = 0
