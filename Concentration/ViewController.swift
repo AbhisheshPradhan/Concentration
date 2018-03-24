@@ -26,6 +26,7 @@ class ViewController: UIViewController {
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
+    //test comment
     
     private var emojiChoices = ["🍆", "😀","🍏","🍎","🥥","🍠"]
     
