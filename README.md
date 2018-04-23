@@ -6,16 +6,17 @@ Added Features:
 - Shuffle Cards
 - Reset Game Button
 - End Game Message Label
+- gamification(add timer, score, etc)
 
 TODO:
 - remove lecture comments
 - use proper halloween theme emoji
-- gamification(add timer, score, etc)
 - code review 
 
 What I Learned:
-
-
-
+- Swift Syntax
+- UI Buttons/Outlets
+- MVC in Swift
+- Creating Storyboard
 
 Thank you Prof. Paul Hegarty and Stanford University for the Course. :)
