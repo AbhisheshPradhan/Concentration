@@ -2,6 +2,8 @@
 Concentration game from Stanford University course. 
 Source code is from the lectures. (Lecture 3)
 
+<a href="https://imgflip.com/gif/29oqfs"><img src="https://i.imgflip.com/29oqfs.gif" title="made at imgflip.com"/></a>
+
 Added Features:
 - Shuffle Cards
 - Reset Game Button
